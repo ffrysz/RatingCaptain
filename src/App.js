@@ -1,29 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styles from './App.scss';
+import { thisExpression } from '@babel/types';
+import CarouselContainer from './components/Carousel/CarouselContainer.js';
 
 class App extends React.Component {
 
+  state = {
+    products: [],
+  };
+
   componentDidMount() {
 
+    const adress = 'https://morning-anchorage-42319.herokuapp.com/https://integrations.yaxint.com/api/products';
+    const token = '?api_token=70876bc3a88f6644c53af702622edcd8';
+    const url = adress + token;
+
     const options = {
-      credentials: 'include',
       method: 'GET',
       headers: {
-        'Content-Type': 'text/plain',
-        'api_token': '70876bc3a88f6644c53af702622edcd8',
+        "Content-Type": "application/json",
+        "Accept": "application/json",
       },
-      // body: JSON.stringify(payload),
     };
 
-    fetch('https://morning-anchorage-42319.herokuapp.com/https://integrations.yaxint.com/api/products', options)
-      .then((res) => res.json())
-      .then((json) => this.setState({ products: json.results }));
+    fetch(url, options)
+      .then(rawResponse => rawResponse.json())
+      .then(parsedResponse => this.setState({ products: parsedResponse }));
   }
 
   render() {
     return (
-      <h1>DUPA</h1>
+      <CarouselContainer products={this.state.products} />
     );
   }
 }
