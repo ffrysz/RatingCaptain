@@ -5,11 +5,20 @@
 }
 
 .hiddenBox {
-  opacity: 0;
+  position: relative;
+  opacity: 1;
   height: 200px;
   width: 200px;
 
-  &:hover {
-    opacity: 0.7;
+  img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
   }
+
+  &:hover img{
+    opacity: 1;
 }
+}
+

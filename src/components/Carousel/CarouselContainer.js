@@ -16,7 +16,10 @@ const CarouselContainer = ({ products }) => {
                 {product.name}<br />
                 {product.description}
               </p>
-              <div className={styles.hiddenBox}>HAHAHAHA</div>
+              <div className={styles.hiddenBox}>
+                Więcej zdjęć
+                <img src={product.images[product.images.length - 1]}></img>
+              </div>
             </div>
           );
         })
