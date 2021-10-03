@@ -1,5 +1,15 @@
-.carouselBox {
+.carouselContainer {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.hiddenBox {
+  opacity: 0;
+  height: 200px;
+  width: 200px;
+
+  &:hover {
+    opacity: 0.7;
+  }
 }

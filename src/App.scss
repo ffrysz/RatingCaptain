@@ -1,9 +1,8 @@
-.wrapper {
-  position: relative;
-
-  & > div {
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%);
-  }
+.container {
+ height: 100vh;
+ display: flex;
+ padding: 5%;
+ justify-content: center;
+ align-items: center;
+ object-fit: scale-down;
 }

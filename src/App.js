@@ -30,7 +30,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <CarouselContainer products={this.state.products} />
+      <div className={styles.container}>
+        <CarouselContainer products={this.state.products} />
+      </div>
     );
   }
 }

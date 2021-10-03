@@ -7,22 +7,21 @@ const CarouselContainer = ({ products }) => {
 
   if (products.data) {
     return (
-      <div className={styles.carouselBox}>
-        <Carousel showArrows={true} autoPlay={true} interval={1000}>
-          <div>
-            <img src={products.data[0].main_image} />
-            <p className="legend">Legend 1</p>
-          </div>
-          <div>
-            <img src={products.data[1].main_image} />
-            <p className="legend">Legend 2</p>
-          </div>
-          <div>
-            <img src={products.data[2].main_image} />
-            <p className="legend">Legend 3</p>
-          </div>
-        </Carousel>
-      </div>
+      <Carousel showArrows={true} autoPlay={true} interval={5000} infiniteLoop={true} >
+        {products.data.map((product, i) => {
+          return (
+            <div key={i}>
+              <img src={product.main_image} />
+              <p className="legend">
+                {product.name}<br />
+                {product.description}
+              </p>
+              <div className={styles.hiddenBox}>HAHAHAHA</div>
+            </div>
+          );
+        })
+        }
+      </Carousel >
     );
   } else return (<h1>Waiting for the data from server</h1>);
 
